@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam Ramirez - Portfolio</title>
+    <meta name="description" content="Portfolio d'Liam Ramirez, étudiant en BTS SIO SLAM.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cursor personnalisé -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#home">&lt;LR /&gt;</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#skills" class="nav-link">Compétences</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-switch">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-subtitle" data-aos="fade-up">Bonjour, je suis</p>
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Liam Ramirez
+                </h1>
+                <h2 class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                    <span class="typed-text"></span>
+                    <span class="cursor-blink">|</span>
+                </h2>
+                <p class="hero-text" data-aos="fade-up" data-aos-delay="300">
+                    Étudiant en BTS SIO SLAM passionné par le développement web.
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>Voir mes projets</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Me contacter</span>
+                    </a>
+                </div>
+                <div class="social-links" data-aos="fade-up" data-aos-delay="500">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:ramirez.liam@outlook.fr" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="600">
+                <div class="image-container">
+                    <div class="glow-effect"></div>
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#6366f1" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,40.1,76.5C26.4,84,13.2,86.4,-0.9,87.9C-15,89.4,-30,90,-43.7,84.3C-57.4,78.6,-69.8,66.6,-78.1,52.4C-86.4,38.2,-90.6,19.1,-89.7,0.5C-88.8,-18.1,-82.8,-36.2,-73.4,-51.2C-64,-66.2,-51.2,-78.1,-36.8,-84.9C-22.4,-91.7,-11.2,-93.4,2.1,-96.8C15.4,-100.2,30.7,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">À propos de moi</h2>
+                <p class="section-subtitle">Découvrez mon parcours</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="image-wrapper">
+                        <img src="https://via.placeholder.com/400x500" alt="Liam Ramirez">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Développeur Web en formation</h3>
+                    <p>
+                        Actuellement en première année de BTS SIO option SLAM, je suis passionné par 
+                        le développement d'applications web. Mon parcours m'a permis d'acquérir 
+                        des compétences solides en programmation et en gestion de projets.
+                    </p>
+                    <p>
+                        J'aime relever des défis techniques et apprendre de nouvelles technologies. 
+                        Mon objectif est de créer des solutions innovantes qui répondent aux besoins 
+                        des utilisateurs tout en maintenant un code propre et maintenable.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <div>
+                                <span class="label">Âge</span>
+                                <span class="value">20 ans</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="label">Localisation</span>
+                                <span class="value">Besançon, France</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="label">Formation</span>
+                                <span class="value">BTS SIO SLAM</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="label">Email</span>
+                                <span class="value">ramirez.liam@outlook.fr</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="assets/images/CV RAMIREZ LIAM.pdf" target="_blank" class="btn btn-primary" download>
+                        <i class="fas fa-download"></i>
+                        <span>Télécharger mon CV</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Compétences</h2>
+                <p class="section-subtitle">Technologies et outils que je maîtrise</p>
+            </div>
+            <div class="skills-container">
+                <!-- Frontend -->
+                <div class="skill-category" data-aos="fade-up">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <span class="skill-name">CSS3/SASS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <span class="skill-name">PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <span class="skill-name">SQL/MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-tools"></i> Outils & Autres</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <span class="skill-name">Git/GitHub</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span class="skill-name">VS Code</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Mes Projets</h2>
+                <p class="section-subtitle">Découvrez mes réalisations récentes</p>
+            </div>
+            
+            <div class="project-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="api">API</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <div class="project-card" data-category="web" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="E-commerce">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Voir le site">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <h3>Plateforme E-commerce</h3>
+                        <p>
+                            Application e-commerce complète avec panier, paiement sécurisé et 
+                            interface d'administration. Utilise React pour le frontend et Node.js pour le backend.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card" data-category="mobile" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Application mobile">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Voir le projet">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <h3>Application de Fitness</h3>
+                        <p>
+                            Application mobile de suivi d'entraînement avec programmes personnalisés, 
+                            statistiques et notifications push.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Dashboard">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Voir le site">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <h3>Dashboard Analytics</h3>
+                        <p>
+                            Tableau de bord d'analyse de données avec graphiques interactifs, 
+                            filtres avancés et export de rapports.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet 4 -->
+                <div class="project-card" data-category="api" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="API REST">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Documentation">
+                                    <i class="fas fa-book"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">JWT</span>
+                        </div>
+                        <h3>API REST Sécurisée</h3>
+                        <p>
+                            API RESTful avec authentification JWT, documentation Swagger et 
+                            tests unitaires complets.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Blog">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Voir le site">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Custom Theme</span>
+                        </div>
+                        <h3>Blog Tech Personnalisé</h3>
+                        <p>
+                            Blog technique avec thème WordPress personnalisé, système de commentaires 
+                            et optimisation SEO.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Chat">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Voir le code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Démo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Socket.io</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <h3>Application de Chat Temps Réel</h3>
+                        <p>
+                            Messagerie instantanée avec WebSocket, salons de discussion et 
+                            partage de fichiers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Contactez-moi</h2>
+                <p class="section-subtitle">N'hésitez pas à me contacter pour toute opportunité</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Restons en contact</h3>
+                    <p>
+                        Je suis actuellement à la recherche d'opportunités de stage ou d'alternance. 
+                        Si vous avez un projet ou une proposition, n'hésitez pas à me contacter !
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Localisation</h4>
+                                <p>Besançon, France</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>ramirez.liam@outlook.fr</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Téléphone</h4>
+                                <p>+33 7 71 10 21 41</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links-contact">
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:ramirez.liam@outlook.fr"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" data-aos="fade-left" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Nom complet</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" required>
+                        <label for="subject">Sujet</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span>Envoyer le message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Liam Ramirez. Tous droits réservés.</p>
+                <p>Développé avec <i class="fas fa-heart"></i> et <i class="fas fa-coffee"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button class="scroll-top" id="scroll-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
