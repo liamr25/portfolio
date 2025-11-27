@@ -7,36 +7,9 @@ const themeSwitch = document.querySelector('.theme-switch');
 const scrollTopBtn = document.getElementById('scroll-top');
 const cursor = document.querySelector('.cursor');
 const cursorFollower = document.querySelector('.cursor-follower');
-const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contact-form');
 
-// ==================== THEME SWITCHER ====================
-let currentTheme = localStorage.getItem('theme') || 'dark';
-
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    
-    const icon = themeSwitch.querySelector('i');
-    if (theme === 'light') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-}
-
-setTheme(currentTheme);
-
-themeSwitch.addEventListener('click', () => {
-    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(currentTheme);
-});
-
-// ==================== NAVIGATION ====================
-// Sticky navbar
 window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
         navbar.classList.add('scrolled');
@@ -108,9 +81,7 @@ interactiveElements.forEach(el => {
 // ==================== TYPED TEXT EFFECT ====================
 const typedTextSpan = document.querySelector('.typed-text');
 const texts = [
-    'Développeur Web',
-    'Étudiant BTS SIO SLAM',
-    'Passionné de Code'
+    'Étudiant BTS SIO SLAM'
 ];
 let textIndex = 0;
 let charIndex = 0;
@@ -187,43 +158,6 @@ function animateSkills() {
     });
 }
 
-// ==================== PROJECT FILTER ====================
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        
-        projectCards.forEach(card => {
-            if (filter === 'all') {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 10);
-            } else {
-                const category = card.getAttribute('data-category');
-                if (category === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            }
-        });
-    });
-});
-
 // ==================== CONTACT FORM ====================
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -232,10 +166,7 @@ contactForm.addEventListener('submit', (e) => {
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
-    // Ici vous pouvez ajouter votre logique d'envoi de formulaire
-    // Par exemple avec EmailJS ou un backend
-    
+
     alert(`Merci ${name}! Votre message a été envoyé avec succès.`);
     contactForm.reset();
 });
