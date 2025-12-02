@@ -816,7 +816,45 @@ button {
     box-shadow: var(--shadow-lg);
 }
 
-.certification-
+.certification-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+}
+
+.certification-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.certification -links {
+    margin-top: var(--spacing-sm);
+}
+
+.certification-links a {
+    margin-right: var(--spacing-sm);
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.certification-links a:hover {
+    color: var(--secondary-color);
+}
+
+.certification-links i {
+    margin-right: 0.25rem;
+}
+
+.certification-date {
+    margin-top: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.project-content {
+    padding: var(--spacing-md);
+}
 
 .project-content h3 {
     font-size: 1.25rem;
