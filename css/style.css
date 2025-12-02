@@ -793,6 +793,31 @@ button {
     font-weight: 500;
 }
 
+.certifications {
+    padding: var(--spacing-xl) 0;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.certification-card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.certification-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.certification-
+
 .project-content h3 {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-sm);
