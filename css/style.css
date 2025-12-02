@@ -852,8 +852,27 @@ button {
     color: var(--text-secondary);
 }
 
-.project-content {
+.veille {
+    padding: var(--spacing-xl) 0;
+}
+
+.veille-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.veille-card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+}
+
+.veille-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
 }
 
 .project-content h3 {
