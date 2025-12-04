@@ -127,7 +127,7 @@ interactiveElements.forEach(el => {
 
 // ==================== TYPED TEXT EFFECT ====================
 const typedTextSpan = document.querySelector('.typed-text');
-const texts = ['Étudiant BTS SIO SLAM', 'Développeur Web', 'Passionné de Code'];
+const texts = ['Étudiant BTS SIO SLAM'];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
