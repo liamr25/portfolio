@@ -27,7 +27,6 @@
                 <li><a href="#veille" class="nav-link">Veille Technologique</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -63,7 +62,6 @@
                     <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    </a>
                     <a href="mailto:ramirezmontesliam@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
@@ -95,7 +93,6 @@
                         Actuellement étudiant en première année de BTS Services Informatiques aux 
                         Organisations (SIO), option Solutions Logicielles et Applications Métiers 
                         (SLAM).
-                    </p>
                     </p>
                     <div class="a-propos-info">
                         <div class="info-item">
@@ -309,7 +306,7 @@
                         <img src="./assets/images/mooc-cnil.png" alt="MOOC CNIL">
                         <div class="certifications-overlay">
                             <div class="certifications-links">
-                                <a href="./assets/images/mooc-cnil.png" class="certifications-links" aria-label="Voir l'attestation">
+                                <a href="./assets/images/mooc-cnil.png" class="certifications-link" aria-label="Voir l'attestation" target="_blank">
                                     <i class="fa-solid fa-shield"></i>
                                 </a>
                             </div>
@@ -322,7 +319,7 @@
                         <img src="./assets/images/portfolio.png" alt="MOOC ANSSI">
                         <div class="certifications-overlay">
                             <div class="certifications-links">
-                                <a href="./assets/images/mooc-anssi.png" target="_blank" class="certifications-links" aria-label="Voir l'attestation">
+                                <a href="./assets/images/mooc-anssi.png" target="_blank" class="certifications-link" aria-label="Voir l'attestation">
                                     <i class="fa-solid fa-shield"></i>
                                 </a>
                             </div>
@@ -335,8 +332,8 @@
                         <img src="./assets/images/pix.png" alt="Certification PIX">
                         <div class="certifications-overlay">
                             <div class="certifications-links">
-                                <a href="./assets/images/pix.png" target="_blank" aria-label="Voir la certification">
-                                    <i class="fa-solid fa-laptop-code"></i>
+                                <a href="./assets/images/pix.png" target="_blank" class="project-link" aria-label="Voir la certification">
+                                    <i class="fa-solid fa-cubes"></i>
                                 </a>
                             </div>
                         </div>
@@ -349,7 +346,7 @@
     <section id="veille" class="veille">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Veille technologique</h2>
+                <h2 class="section-title">Veille Technologique</h2>
                 <p class="section-subtitle">🚧En construction🚧</p>
             </div>
             <div class="veille-grid">
@@ -420,21 +417,21 @@
                         <a href="mailto:ramirezmontesliam@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <form class="contact-form" data-aos="fade-left" id="contact-form">
+                <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required placeholder=" ">
                         <label for="name">Nom complet</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required placeholder=" ">
                         <label for="email">Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" required>
+                        <input type="text" id="subject" name="subject" required placeholder=" ">
                         <label for="subject">Sujet</label>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
                         <label for="message">Message</label>
                     </div>
                     <button type="submit" class="btn btn-primary">
