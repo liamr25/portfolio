@@ -721,8 +721,14 @@ button {
 }
 
 /* ==================== CERTIFICATIONS & VEILLE ==================== */
-.certifications, .veille {
+.certifications {
     padding: var(--spacing-xl) 0;
+    background-color: var(--bg-color);
+}
+
+.veille {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-secondary);
 }
 
 .certifications-grid, .veille-grid {
@@ -731,8 +737,17 @@ button {
     gap: var(--spacing-md);
 }
 
-.certifications-card, .veille-card {
+.certifications-card {
     background-color: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.veille-card {
+    background-color: var(--bg-color);
     border-radius: var(--radius-xl);
     padding: var(--spacing-md);
     border: 1px solid var(--border-color);
