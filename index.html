@@ -1,1147 +1,543 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Liam Ramirez, étudiant en BTS SIO SISR - Infrastructure, Systèmes et Réseaux">
-    <title>Liam Ramirez | Infrastructure & Réseaux</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-dark: #0f1419;
-            --bg-card: #1a1f2e;
-            --bg-accent: #0d47a1;
-            --text-primary: #e8eef7;
-            --text-secondary: #a0aac1;
-            --cyan: #00d9ff;
-            --cyan-light: #4dd9ff;
-            --accent-orange: #ff6b35;
-            --border: #2a3142;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 20, 25, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--cyan), var(--accent-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--cyan);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--cyan);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            padding: 2rem;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-accent {
-            color: var(--cyan);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-orange), #ff8c42);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--cyan);
-            border: 2px solid var(--cyan);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 217, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Section */
-        section {
-            padding: 5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            height: 4px;
-            width: 60px;
-            background: linear-gradient(90deg, var(--cyan), var(--accent-orange));
-            border-radius: 2px;
-        }
-
-        /* À propos */
-        #apropos {
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.05) 0%, rgba(0, 217, 255, 0.02) 100%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--cyan);
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .info-item {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .info-item strong {
-            color: var(--cyan);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Compétences */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            border-color: var(--cyan);
-            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.1);
-        }
-
-        .skill-category h3 {
-            color: var(--cyan);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--cyan-light);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-        }
-
-        /* Expériences */
-        .experiences {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .experience-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-orange);
-            transition: all 0.3s ease;
-        }
-
-        .experience-card:hover {
-            border-left-color: var(--cyan);
-            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.1);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .experience-header h3 {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-        }
-
-        .experience-date {
-            color: var(--cyan);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .experience-company {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .experience-details {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .experience-details ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .experience-details li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Projets */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            border-color: var(--cyan);
-            box-shadow: 0 8px 20px rgba(0, 217, 255, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.3) 0%, rgba(0, 217, 255, 0.2) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--cyan);
-            font-weight: 700;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            background: rgba(255, 107, 53, 0.1);
-            color: var(--accent-orange);
-            padding: 0.3rem 0.8rem;
-            border-radius: 16px;
-            font-size: 0.75rem;
-            border: 1px solid rgba(255, 107, 53, 0.3);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-links a {
-            color: var(--cyan);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: var(--cyan-light);
-        }
-
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .cert-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .cert-card:hover {
-            border-color: var(--cyan);
-            transform: translateY(-4px);
-        }
-
-        .cert-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cert-card h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .cert-card p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        /* Veille Technologique */
-        .watch-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .watch-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .watch-card:hover {
-            border-color: var(--accent-orange);
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
-        }
-
-        .watch-card h3 {
-            color: var(--accent-orange);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .watch-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--cyan);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .contact-item {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .contact-item h3 {
-            color: var(--cyan);
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .contact-item p {
-            color: var(--text-secondary);
-        }
-
-        .contact-item a {
-            color: var(--accent-orange);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--cyan);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-        }
-
-        .social-link:hover {
-            border-color: var(--cyan);
-            color: var(--cyan);
-            background: rgba(0, 217, 255, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-card);
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .experience-card, .skill-category, .project-card, .cert-card, .watch-card {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liam Ramirez — Infrastructure &amp; Réseaux</title>
+<meta name="description" content="Portfolio de Liam Ramirez, étudiant en BTS SIO SISR (Solutions d'Infrastructure, Systèmes et Réseaux) à Besançon. Infrastructure réseau, sécurité, virtualisation — à la recherche d'une alternance.">
+<meta name="theme-color" content="#0a0e13">
+<link rel="canonical" href="https://liamr25.github.io/mon-portfolio/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Liam Ramirez — Infrastructure &amp; Réseaux">
+<meta property="og:description" content="Étudiant BTS SIO SISR — infrastructure réseau, sécurité et systèmes. À la recherche d'une alternance.">
+<meta property="og:url" content="https://liamr25.github.io/mon-portfolio/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Liam Ramirez — Infrastructure &amp; Réseaux">
+<meta name="twitter:description" content="Étudiant BTS SIO SISR — infrastructure réseau, sécurité et systèmes.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <div class="logo">LR</div>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#experiences">Expériences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#veille">Veille</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="#accueil" class="nav-logo" aria-label="Retour à l'accueil">
+      <span class="nav-logo__mark">LR</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
+      <a href="#accueil" data-nav>Accueil</a>
+      <a href="#apropos" data-nav>À propos</a>
+      <a href="#competences" data-nav>Compétences</a>
+      <a href="#experiences" data-nav>Expériences</a>
+      <a href="#projets" data-nav>Projets</a>
+      <a href="#veille" data-nav>Veille</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn btn--sm btn--primary nav-cta">Me contacter</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-progress" id="nav-progress" aria-hidden="true"></div>
+</header>
+
+<main id="contenu">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="accueil">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <svg class="hero-topology" viewBox="0 0 800 600" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <g class="topo-lines" stroke="currentColor" fill="none" stroke-width="1">
+        <path d="M 90 480 L 260 360 L 460 400 L 640 260" />
+        <path d="M 260 360 L 300 180" />
+        <path d="M 460 400 L 560 520" />
+        <path d="M 640 260 L 720 120" />
+        <path d="M 300 180 L 520 90" />
+      </g>
+      <g class="topo-nodes" fill="currentColor">
+        <circle cx="90" cy="480" r="4"/>
+        <circle cx="260" cy="360" r="5"/>
+        <circle cx="460" cy="400" r="4"/>
+        <circle cx="640" cy="260" r="5"/>
+        <circle cx="300" cy="180" r="4"/>
+        <circle cx="560" cy="520" r="3.5"/>
+        <circle cx="720" cy="120" r="3.5"/>
+        <circle cx="520" cy="90" r="3.5"/>
+      </g>
+      <circle class="topo-pulse" r="3.5">
+        <animateMotion dur="6s" repeatCount="indefinite" path="M 90 480 L 260 360 L 460 400 L 640 260 L 720 120" />
+      </circle>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-kicker"><span class="dot dot--up" aria-hidden="true"></span>Disponible pour une alternance</p>
+        <h1 class="hero-title">Liam Ramirez</h1>
+        <p class="hero-role">Infrastructure &amp; Réseaux — BTS SIO SISR, 2<sup>e</sup> année</p>
+        <p class="hero-desc">Étudiant en administration systèmes et réseaux au Lycée Louis Pergaud à Besançon. J'apprends en construisant&nbsp;: routage, sécurité périmétrique, virtualisation et supervision d'infrastructure.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn--primary">Me contacter</a>
+          <a href="#projets" class="btn btn--ghost">Voir mes projets</a>
+        </div>
+      </div>
+
+      <div class="hero-terminal" role="img" aria-label="Terminal simulé affichant une brève présentation de Liam Ramirez">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot terminal__dot--r"></span>
+            <span class="terminal__dot terminal__dot--y"></span>
+            <span class="terminal__dot terminal__dot--g"></span>
+            <span class="terminal__title">liam@infra&nbsp;—&nbsp;zsh</span>
+          </div>
+          <pre class="terminal__body" id="terminal-body" aria-hidden="true"></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A PROPOS ============ -->
+  <section class="section" id="apropos">
+    <div class="section-inner about-layout">
+      <div class="about-copy">
+        <h2 class="section-title">À propos</h2>
+        <p class="section-lede">Passionné par l'infrastructure IT</p>
+        <p>Je suis actuellement en 2<sup>e</sup> année de BTS Services Informatiques aux Organisations (SIO), option Solutions d'Infrastructure, Systèmes et Réseaux (SISR), au Lycée Louis Pergaud à Besançon.</p>
+        <p>Rigoureux et motivé, j'accumule de l'expérience pratique au travers de stages en entreprise, couvrant l'administration système, la gestion d'infrastructure réseau, la cybersécurité et la conformité RGPD.</p>
+        <p>Je recherche une alternance ou un stage pour continuer à développer mes compétences et contribuer à des projets réels.</p>
+      </div>
+
+      <aside class="about-panel" aria-label="Informations pratiques">
+        <div class="about-panel__head">
+          <span class="dot dot--up" aria-hidden="true"></span>
+          <span>show&nbsp;profile</span>
+        </div>
+        <dl class="about-facts">
+          <div class="about-facts__row">
+            <dt>Âge</dt>
+            <dd>21 ans</dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Localisation</dt>
+            <dd>Saône (25), France</dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Téléphone</dt>
+            <dd><a href="tel:+33771102141">+33 7 71 10 21 41</a></dd>
+          </div>
+          <div class="about-facts__row">
+            <dt>Email</dt>
+            <dd><a href="mailto:ramirezmontesliam@gmail.com">ramirezmontesliam@gmail.com</a></dd>
+          </div>
+        </dl>
+        <a href="CV_RAMIREZ-MONTES_Liam.pdf" class="btn btn--ghost btn--sm about-panel__cta" download>Télécharger mon CV</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ COMPETENCES ============ -->
+  <section class="section section--alt" id="competences">
+    <div class="section-inner">
+      <h2 class="section-title">Compétences</h2>
+      <p class="section-lede">Réparties comme des modules sur une baie — chacune couvre un domaine de l'infrastructure.</p>
+
+      <div class="skills-grid">
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">🌐</span>Infrastructure Réseau</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>Cisco</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Routage</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>VLAN</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>DHCP</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>DMZ</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>HSRP</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>QoS</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Load Balancing</li>
+          </ul>
+        </div>
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">🔒</span>Sécurité Réseau</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>pfSense</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>VPN IPSec</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>OpenVPN</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Radius</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>WiFi WPA Enterprise</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>RGPD</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>PIA / EBIOS</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>ANSSI</li>
+          </ul>
+        </div>
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">💻</span>Systèmes d'Exploitation</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>Windows Server 2022</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Active Directory</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Windows 11</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Linux / Debian 12</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Proxmox 8.4</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Virtualisation</li>
+          </ul>
+        </div>
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">🛠️</span>Administration &amp; Monitoring</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>GLPI</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>HelpDesk</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>VNC</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Zabbix</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Sauvegarde</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Réplication VM</li>
+          </ul>
+        </div>
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">🖥️</span>Technologies Réseaux</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>D-Link</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>NetGear</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>HPE</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>MikroTik</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>StormShield</li>
+          </ul>
+        </div>
+
+        <div class="skill-panel">
+          <h3 class="skill-panel__title"><span class="skill-panel__icon" aria-hidden="true">📝</span>Programmation</h3>
+          <ul class="skill-list">
+            <li><span class="dot dot--up" aria-hidden="true"></span>PowerShell</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Batch / DOS</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>HTML / CSS</li>
+            <li><span class="dot dot--up" aria-hidden="true"></span>Symfony</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCES ============ -->
+  <section class="section" id="experiences">
+    <div class="section-inner">
+      <h2 class="section-title">Expériences</h2>
+      <p class="section-lede section-lede--mono">traceroute&nbsp;liam-ramirez.parcours</p>
+
+      <ol class="trace">
+
+        <li class="hop">
+          <div class="hop__marker"><span class="hop__num">01</span></div>
+          <div class="hop__card">
+            <div class="hop__head">
+              <div>
+                <h3 class="hop__role">Stagiaire Administrateur Systèmes et Réseaux</h3>
+                <p class="hop__org">ANS Informatique</p>
+              </div>
+              <span class="hop__duration">3 semaines</span>
+            </div>
+            <p class="hop__dates">29 juin – 17 juillet 2026</p>
+            <ul class="hop__list">
+              <li><strong>Migration des liens informatiques&nbsp;:</strong> inventaire complet et reprise de la configuration de l'ensemble des routeurs (versions, adresses IP, interfaces, protocoles de routage) → cartographie complète de l'infrastructure existante.</li>
+              <li><strong>Standardisation des procédures&nbsp;:</strong> rédaction de procédures de bascule standardisées et testées par type d'équipement (MikroTik, StormShield, pfSense), devenues le nouveau standard d'intervention de l'entreprise.</li>
             </ul>
-        </nav>
-    </header>
+          </div>
+        </li>
 
-    <!-- Hero -->
-    <section class="hero" id="accueil">
-        <div class="hero-content">
-            <h1>Liam Ramirez</h1>
-            <p class="subtitle">
-                Étudiant <span class="hero-accent">Infrastructure & Réseaux</span><br>
-                BTS SIO – 2ème année
-            </p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Me contacter</a>
-                <a href="#projets" class="btn btn-secondary">Voir mes projets</a>
+        <li class="hop">
+          <div class="hop__marker"><span class="hop__num">02</span></div>
+          <div class="hop__card">
+            <div class="hop__head">
+              <div>
+                <h3 class="hop__role">Stagiaire Informatique</h3>
+                <p class="hop__org">Lycée Louis Pergaud, Besançon</p>
+              </div>
+              <span class="hop__duration">2 semaines</span>
             </div>
-        </div>
-    </section>
+            <p class="hop__dates">15 – 26 juin 2026</p>
+            <ul class="hop__list">
+              <li>Montage d'un cluster Proxmox.</li>
+              <li>Configuration de la sauvegarde Proxmox et réplication de machines virtuelles.</li>
+              <li>Mise en place d'un miroir de mise à jour Proxmox.</li>
+              <li>Participation au déménagement et à la reconfiguration des salles informatiques.</li>
+            </ul>
+          </div>
+        </li>
 
-    <!-- À propos -->
-    <section id="apropos">
-        <div class="container">
-            <h2>À propos</h2>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Passionné par l'infrastructure IT</h3>
-                    <p>
-                        Je suis actuellement en 2ème année de BTS Services Informatiques aux Organisations (SIO), option Solutions d'Infrastructure, Systèmes et Réseaux (SISR) au Lycée Louis Pergaud à Besançon.
-                    </p>
-                    <p>
-                        Rigoureux et très motivé, j'accumule de l'expérience pratique au travers de stages en entreprise, couvrant l'administration système, la gestion d'infrastructure réseau, la cybersécurité et la conformité RGPD.
-                    </p>
-                    <p>
-                        Je recherche une alternance ou un stage pour continuer à développer mes compétences et contribuer à des projets réels.
-                    </p>
-                </div>
-                
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>Âge</strong>
-                        21 ans
-                    </div>
-                    <div class="info-item">
-                        <strong>Localisation</strong>
-                        Saône (25), France
-                    </div>
-                    <div class="info-item">
-                        <strong>Téléphone</strong>
-                        <a href="tel:+33771102141" style="color: var(--text-secondary); text-decoration: none;">+33 7 71 10 21 41</a>
-                    </div>
-                    <div class="info-item">
-                        <strong>Email</strong>
-                        <a href="mailto:ramirezmontesliam@gmail.com" style="color: var(--text-secondary); text-decoration: none;">ramirezmontesliam@gmail.com</a>
-                    </div>
-                </div>
+        <li class="hop">
+          <div class="hop__marker"><span class="hop__num">03</span></div>
+          <div class="hop__card">
+            <div class="hop__head">
+              <div>
+                <h3 class="hop__role">Stagiaire Développeur</h3>
+                <p class="hop__org">Laboratoire ThéMA, Besançon</p>
+              </div>
+              <span class="hop__duration">5 semaines</span>
             </div>
-        </div>
-    </section>
+            <p class="hop__dates">26 mai – 27 juin 2025</p>
+            <ul class="hop__list">
+              <li>Développement d'une application web avec le framework Symfony.</li>
+              <li>Mise en œuvre des bonnes pratiques de développement.</li>
+            </ul>
+          </div>
+        </li>
 
-    <!-- Compétences -->
-    <section id="competences">
-        <div class="container">
-            <h2>Compétences</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>🌐 Infrastructure Réseau</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Cisco</span>
-                        <span class="skill-tag">Routage</span>
-                        <span class="skill-tag">VLAN</span>
-                        <span class="skill-tag">DHCP</span>
-                        <span class="skill-tag">DMZ</span>
-                        <span class="skill-tag">HSRP</span>
-                        <span class="skill-tag">QoS</span>
-                        <span class="skill-tag">Load Balancing</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🔒 Sécurité Réseau</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">pfSense</span>
-                        <span class="skill-tag">VPN IPSec</span>
-                        <span class="skill-tag">OpenVPN</span>
-                        <span class="skill-tag">Radius</span>
-                        <span class="skill-tag">WiFi WPA Enterprise</span>
-                        <span class="skill-tag">RGPD</span>
-                        <span class="skill-tag">PIA/EBIOS</span>
-                        <span class="skill-tag">ANSSI</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>💻 Systèmes d'Exploitation</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Windows Server 2022</span>
-                        <span class="skill-tag">Active Directory</span>
-                        <span class="skill-tag">Windows 11</span>
-                        <span class="skill-tag">Linux / Debian 12</span>
-                        <span class="skill-tag">Proxmox 8.4</span>
-                        <span class="skill-tag">Virtualisation</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🛠️ Administration & Monitoring</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">GLPI</span>
-                        <span class="skill-tag">HelpDesk</span>
-                        <span class="skill-tag">VNC</span>
-                        <span class="skill-tag">Zabbix</span>
-                        <span class="skill-tag">Sauvegarde</span>
-                        <span class="skill-tag">Replication VM</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🖥️ Technologies Réseaux</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">D-Link</span>
-                        <span class="skill-tag">NetGear</span>
-                        <span class="skill-tag">HPE</span>
-                        <span class="skill-tag">MikroTik</span>
-                        <span class="skill-tag">StormShield</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>📝 Programmation</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">Batch / DOS</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">Symfony</span>
-                    </div>
-                </div>
+        <li class="hop">
+          <div class="hop__marker"><span class="hop__num">04</span></div>
+          <div class="hop__card">
+            <div class="hop__head">
+              <div>
+                <h3 class="hop__role">Hôte de caisse</h3>
+                <p class="hop__org">Intermarché SUPER, Saône</p>
+              </div>
+              <span class="hop__duration">4 mois</span>
             </div>
+            <p class="hop__dates">Août – novembre 2024</p>
+            <ul class="hop__list">
+              <li>Gestion de caisse et encaissement client.</li>
+              <li>Ouverture et fermeture de caisse.</li>
+            </ul>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJETS ============ -->
+  <section class="section section--alt" id="projets">
+    <div class="section-inner">
+      <h2 class="section-title">Projets</h2>
+      <p class="section-lede">Mises en pratique menées en formation et en stage.</p>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="project-card__icon" aria-hidden="true">🌐</div>
+          <h3 class="project-card__title">Conception Réseau d'Entreprise</h3>
+          <p class="project-card__desc">Projet «&nbsp;Poisson d'Avril&nbsp;»&nbsp;: conception et configuration complète d'une infrastructure réseau d'entreprise multi-services.</p>
+          <ul class="tag-row">
+            <li>Cisco</li><li>VLAN</li><li>DHCP</li><li>Routage</li>
+          </ul>
+          <a href="#" class="project-card__link">Voir le projet</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__icon" aria-hidden="true">🔧</div>
+          <h3 class="project-card__title">Migration d'Infrastructure</h3>
+          <p class="project-card__desc">Migration complète des équipements réseau d'une infrastructure, avec documentation des procédures et mise en place de standards.</p>
+          <ul class="tag-row">
+            <li>MikroTik</li><li>StormShield</li><li>pfSense</li>
+          </ul>
+          <a href="#" class="project-card__link">En savoir plus</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__icon" aria-hidden="true">⚙️</div>
+          <h3 class="project-card__title">Infrastructure Proxmox</h3>
+          <p class="project-card__desc">Mise en place d'un cluster Proxmox avec sauvegarde, réplication et miroir de mises à jour pour un environnement de production.</p>
+          <ul class="tag-row">
+            <li>Proxmox</li><li>Virtualisation</li><li>Backup</li>
+          </ul>
+          <a href="#" class="project-card__link">Détails du projet</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card__icon" aria-hidden="true">🌍</div>
+          <h3 class="project-card__title">Site Symfony</h3>
+          <p class="project-card__desc">Application web développée avec le framework Symfony, intégrant les bonnes pratiques de développement moderne.</p>
+          <ul class="tag-row">
+            <li>Symfony</li><li>PHP</li><li>MVC</li>
+          </ul>
+          <a href="https://github.com/liamr25" class="project-card__link" target="_blank" rel="noopener">GitHub ↗</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="section" id="certifications">
+    <div class="section-inner">
+      <h2 class="section-title">Certifications</h2>
+
+      <div class="certs-row">
+        <div class="cert-badge">
+          <span class="cert-badge__icon" aria-hidden="true">🔐</span>
+          <div>
+            <h3 class="cert-badge__title">MOOC CNIL</h3>
+            <p class="cert-badge__sub">Atelier RGPD — conformité et bonnes pratiques</p>
+          </div>
+          <span class="cert-badge__year">2024</span>
         </div>
-    </section>
 
-    <!-- Expériences -->
-    <section id="experiences">
-        <div class="container">
-            <h2>Expériences</h2>
-            
-            <div class="experiences">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Stagiaire Administrateur Systèmes et Réseaux</h3>
-                            <p class="experience-company">ANS Informatique</p>
-                        </div>
-                        <div class="experience-date">29 juin - 17 juillet 2026</div>
-                    </div>
-                    <div class="experience-details">
-                        <p><strong>Durée :</strong> 3 semaines</p>
-                        <ul>
-                            <li><strong>Migration des liens informatiques :</strong> Inventaire complet et reprise de la configuration de l'ensemble des routeurs (versions, adresses IP, interfaces, protocoles de routage) → cartographie complète de l'infrastructure existante</li>
-                            <li><strong>Standardisation des procédures :</strong> Rédaction de procédures de bascule standardisées et testées par type d'équipement (MikroTik, StormShield, pfSense), devenues nouveau standard d'intervention pour l'entreprise</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Stagiaire Informatique</h3>
-                            <p class="experience-company">Lycée Louis Pergaud, Besançon</p>
-                        </div>
-                        <div class="experience-date">15 - 26 juin 2026</div>
-                    </div>
-                    <div class="experience-details">
-                        <p><strong>Durée :</strong> 2 semaines</p>
-                        <ul>
-                            <li>Montage d'un cluster Proxmox</li>
-                            <li>Configuration de la sauvegarde Proxmox et réplication de machines virtuelles</li>
-                            <li>Mise en place d'un miroir de mise à jour Proxmox</li>
-                            <li>Participation au déménagement et reconfiguration des salles informatiques</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Stagiaire Développeur</h3>
-                            <p class="experience-company">Laboratoire ThéMA, Besançon</p>
-                        </div>
-                        <div class="experience-date">26 mai - 27 juin 2025</div>
-                    </div>
-                    <div class="experience-details">
-                        <p><strong>Durée :</strong> 5 semaines</p>
-                        <ul>
-                            <li>Développement d'une application web avec le framework Symfony</li>
-                            <li>Mise en œuvre des bonnes pratiques de développement</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Hôte de caisse</h3>
-                            <p class="experience-company">Intermarché SUPER, Saône</p>
-                        </div>
-                        <div class="experience-date">Août - novembre 2024</div>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Gestion de caisse et encaissement client</li>
-                            <li>Ouverture et fermeture de caisse</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="cert-badge">
+          <span class="cert-badge__icon" aria-hidden="true">🛡️</span>
+          <div>
+            <h3 class="cert-badge__title">MOOC ANSSI</h3>
+            <p class="cert-badge__sub">SecNumacadémie — sécurité informatique</p>
+          </div>
+          <span class="cert-badge__year">2024</span>
         </div>
-    </section>
 
-    <!-- Projets -->
-    <section id="projets">
-        <div class="container">
-            <h2>Projets</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">🌐</div>
-                    <div class="project-content">
-                        <h3>Conception Réseau d'Entreprise</h3>
-                        <p class="project-description">
-                            Projet "Poisson d'Avril" : Conception et configuration complète d'une infrastructure réseau d'entreprise multi-services.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Cisco</span>
-                            <span class="project-tag">VLAN</span>
-                            <span class="project-tag">DHCP</span>
-                            <span class="project-tag">Routage</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">🔧</div>
-                    <div class="project-content">
-                        <h3>Migration d'Infrastructure</h3>
-                        <p class="project-description">
-                            Migration complète des équipements réseau d'une infrastructure avec documentation des procédures et mise en place de standards.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">MikroTik</span>
-                            <span class="project-tag">StormShield</span>
-                            <span class="project-tag">pfSense</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">⚙️</div>
-                    <div class="project-content">
-                        <h3>Infrastructure Proxmox</h3>
-                        <p class="project-description">
-                            Mise en place d'un cluster Proxmox avec sauvegarde, réplication et miroir de mises à jour pour environnement de production.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Proxmox</span>
-                            <span class="project-tag">Virtualisation</span>
-                            <span class="project-tag">Backup</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#">Détails du projet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">🌍</div>
-                    <div class="project-content">
-                        <h3>Site Symfony</h3>
-                        <p class="project-description">
-                            Application web développée avec le framework Symfony, intégrant les bonnes pratiques de développement moderne.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Symfony</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MVC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/liamr25">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="cert-badge">
+          <span class="cert-badge__icon" aria-hidden="true">✅</span>
+          <div>
+            <h3 class="cert-badge__title">Certificat PIX</h3>
+            <p class="cert-badge__sub">Certificat de compétences numériques</p>
+          </div>
+          <span class="cert-badge__year">2024</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Certifications -->
-    <section>
-        <div class="container">
-            <h2>Certifications</h2>
-            
-            <div class="certifications-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">🔐</div>
-                    <h3>MOOC CNIL</h3>
-                    <p>Atelier RGPD - Conformité et bonnes pratiques</p>
-                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">2024</p>
-                </div>
+  <!-- ============ VEILLE ============ -->
+  <section class="section section--alt" id="veille">
+    <div class="section-inner">
+      <h2 class="section-title">Veille technologique</h2>
+      <p class="section-lede">Sujets que je suis actuellement, classés comme un flux.</p>
 
-                <div class="cert-card">
-                    <div class="cert-icon">🛡️</div>
-                    <h3>MOOC ANSSI</h3>
-                    <p>SecNumacadémie - Sécurité informatique</p>
-                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">2024</p>
-                </div>
+      <ul class="feed">
+        <li class="feed-item">
+          <span class="feed-item__tag">SEC</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Infrastructure à Zero Trust</h3>
+            <p>L'évolution des architectures réseau vers le modèle Zero Trust, marquant la fin de la confiance périmétrique traditionnelle pour une sécurité granulaire et continue.</p>
+            <a href="#">Explorer le sujet</a>
+          </div>
+        </li>
+        <li class="feed-item">
+          <span class="feed-item__tag">INFRA</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Virtualisation hyperconvergée</h3>
+            <p>Tendances actuelles des solutions hyperconvergées pour consolider stockage, calcul et réseau dans une infrastructure plus simple et scalable.</p>
+            <a href="#">En savoir plus</a>
+          </div>
+        </li>
+        <li class="feed-item">
+          <span class="feed-item__tag">SEC</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Cybersécurité ANSSI</h3>
+            <p>Suivi des recommandations et lignes directrices de l'Agence Nationale de la Sécurité des Systèmes d'Information pour les bonnes pratiques.</p>
+            <a href="#">Lire les directives</a>
+          </div>
+        </li>
+        <li class="feed-item">
+          <span class="feed-item__tag">LEGAL</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Conformité RGPD / DPIA</h3>
+            <p>Actualisation des normes de conformité RGPD et évolution des processus d'analyse d'impact pour la protection des données personnelles.</p>
+            <a href="#">Documentation</a>
+          </div>
+        </li>
+        <li class="feed-item">
+          <span class="feed-item__tag">OPS</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Automatisation réseau</h3>
+            <p>Émergence de l'automatisation dans la gestion d'infrastructure&nbsp;: NetDevOps, IaC (Infrastructure as Code) et outils de provisioning automatisé.</p>
+            <a href="#">Découvrir</a>
+          </div>
+        </li>
+        <li class="feed-item">
+          <span class="feed-item__tag">NET</span>
+          <div class="feed-item__body">
+            <h3 class="feed-item__title">Protocoles réseau modernes</h3>
+            <p>Évolution des protocoles&nbsp;: HTTP/3, QUIC, et optimisations pour la latence et la bande passante dans les environnements cloud-native.</p>
+            <a href="#">Approfondir</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-                <div class="cert-card">
-                    <div class="cert-icon">✅</div>
-                    <h3>Certificat PIX</h3>
-                    <p>Certificat de compétences numériques</p>
-                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem;">2024</p>
-                </div>
-            </div>
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Restons en contact</h2>
+      <p class="section-lede">Intéressé par une collaboration ou une opportunité d'alternance&nbsp;?</p>
+
+      <div class="contact-grid">
+        <div class="contact-primary">
+          <span class="contact-primary__label">Email</span>
+          <div class="contact-primary__row">
+            <a href="mailto:ramirezmontesliam@gmail.com" class="contact-primary__value">ramirezmontesliam@gmail.com</a>
+            <button class="copy-btn" id="copy-email" type="button" data-copy="ramirezmontesliam@gmail.com" aria-label="Copier l'adresse email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              <span class="copy-btn__label">Copier</span>
+            </button>
+          </div>
         </div>
-    </section>
 
-    <!-- Veille Technologique -->
-    <section id="veille">
-        <div class="container">
-            <h2>Veille Technologique</h2>
-            
-            <div class="watch-items">
-                <div class="watch-card">
-                    <h3>Infrastructure à Zero Trust</h3>
-                    <p>
-                        L'évolution des architectures réseau vers le modèle Zero Trust, marquant la fin de la confiance périmétrique traditionnelle pour une sécurité granulaire et continue.
-                    </p>
-                    <a href="#" class="read-more">Explorer le sujet →</a>
-                </div>
+        <div class="contact-cards">
+          <a href="tel:+33771102141" class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span>
+              <span class="contact-card__label">Téléphone</span>
+              <span class="contact-card__value">+33 7 71 10 21 41</span>
+            </span>
+          </a>
 
-                <div class="watch-card">
-                    <h3>Virtualization Hyperconvergée</h3>
-                    <p>
-                        Tendances actuelles des solutions hyperconvergées pour consolider stockage, calcul et réseau dans une infrastructure plus simple et scalable.
-                    </p>
-                    <a href="#" class="read-more">En savoir plus →</a>
-                </div>
-
-                <div class="watch-card">
-                    <h3>Cybersécurité ANSSI</h3>
-                    <p>
-                        Suivi des recommandations et lignes directrices de l'Agence Nationale de la Sécurité des Systèmes d'Information pour les bonnes pratiques.
-                    </p>
-                    <a href="#" class="read-more">Lire les directives →</a>
-                </div>
-
-                <div class="watch-card">
-                    <h3>Compliance RGPD/DPIA</h3>
-                    <p>
-                        Actualisation des normes de conformité RGPD et évolution des processus d'analyse d'impact pour la protection des données personnelles.
-                    </p>
-                    <a href="#" class="read-more">Documentation →</a>
-                </div>
-
-                <div class="watch-card">
-                    <h3>Automatisation Réseau</h3>
-                    <p>
-                        Émergence de l'automation dans la gestion d'infrastructure : NetDevOps, IaC (Infrastructure as Code), et outils de provisioning automatisé.
-                    </p>
-                    <a href="#" class="read-more">Découvrir →</a>
-                </div>
-
-                <div class="watch-card">
-                    <h3>Protocoles Réseau Modernes</h3>
-                    <p>
-                        Évolution des protocoles : HTTP/3, QUIC, et optimisations pour la latence et la bande passante dans les environnements cloud-native.
-                    </p>
-                    <a href="#" class="read-more">Approfondir →</a>
-                </div>
-            </div>
+          <div class="contact-card contact-card--static">
+            <span class="contact-card__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span>
+              <span class="contact-card__label">Localisation</span>
+              <span class="contact-card__value">Saône (25), France</span>
+            </span>
+          </div>
         </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Restons en contact</h2>
-                <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 1rem;">
-                    Intéressé par une collaboration ou une opportunité de stage ?
-                </p>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>📧 Email</h3>
-                        <p><a href="mailto:ramirezmontesliam@gmail.com">ramirezmontesliam@gmail.com</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>📱 Téléphone</h3>
-                        <p><a href="tel:+33771102141">+33 7 71 10 21 41</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>📍 Localisation</h3>
-                        <p>Saône, France</p>
-                    </div>
-                </div>
-
-                <div class="contact-links">
-                    <a href="https://github.com/liamr25" class="social-link" title="GitHub">🐙</a>
-                    <a href="https://www.linkedin.com/in/liam-r-5562962b2/" class="social-link" title="LinkedIn">💼</a>
-                    <a href="mailto:ramirezmontesliam@gmail.com" class="social-link" title="Email">✉️</a>
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <a href="#" class="btn btn-primary">Télécharger mon CV</a>
-                </div>
-            </div>
+        <div class="contact-footer">
+          <div class="social-row">
+            <a href="https://github.com/liamr25" target="_blank" rel="noopener" aria-label="Profil GitHub de Liam Ramirez" class="social-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.02 11.02 0 0 1 5.8 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.6.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/liam-r-5562962b2/" target="_blank" rel="noopener" aria-label="Profil LinkedIn de Liam Ramirez" class="social-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+            </a>
+            <a href="mailto:ramirezmontesliam@gmail.com" aria-label="Envoyer un email à Liam Ramirez" class="social-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6c0-1.1-.9-2-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6zm-2 0-8 5-8-5"/></svg>
+            </a>
+          </div>
+          <a href="CV_RAMIREZ-MONTES_Liam.pdf" class="btn btn--primary" download>Télécharger mon CV</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Liam Ramirez. Tous droits réservés. | <a href="#" style="color: var(--text-secondary); text-decoration: none;">Mentions légales</a></p>
-    </footer>
+</main>
 
-    <script>
-        // Smooth scroll behavior for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+<footer class="site-footer">
+  <div class="section-inner site-footer__inner">
+    <p>© 2026 Liam Ramirez. Tous droits réservés.</p>
+    <a href="#">Mentions légales</a>
+  </div>
+</footer>
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<button class="to-top" id="to-top" aria-label="Retour en haut de page">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.skill-category, .experience-card, .project-card, .cert-card, .watch-card').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
