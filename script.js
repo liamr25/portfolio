@@ -136,7 +136,7 @@
 
     const script = [
       { cmd: 'whoami', out: 'Liam Ramirez — étudiant BTS SIO SISR, 2e année' },
-      { cmd: 'cat objectif.txt', out: 'Recherche une alternance ou un stage\nen infrastructure & réseaux.' },
+      { cmd: 'cat objectif.txt', out: 'Recherche une alternance Bac+3\nsystèmes, réseaux & cybersécurité\ndès septembre 2027.' },
       { cmd: 'cat localisation.txt', out: 'Saône (25), France' }
     ];
 
