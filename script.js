@@ -127,6 +127,27 @@
     });
   }
 
+
+  /* ---------------------------------------------------------------------
+     Reveal on scroll — cards fade in as they enter the viewport
+     --------------------------------------------------------------------- */
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const targets = document.querySelectorAll('.section-title, .skill-panel, .hop, .project-card, .cert-badge, .feed-item, .about-panel');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    targets.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 3) * 60 + 'ms';
+      io.observe(el);
+    });
+  }
+
   /* ---------------------------------------------------------------------
      Hero terminal — simulated typing
      --------------------------------------------------------------------- */
