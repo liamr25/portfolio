@@ -148,6 +148,55 @@
     });
   }
 
+
+  /* ---------------------------------------------------------------------
+     Certification viewer — opens each attestation in a modal,
+     falls back to the PDF itself if <dialog> is unsupported
+     --------------------------------------------------------------------- */
+  const viewer = document.getElementById('cert-viewer');
+  if (viewer && typeof viewer.showModal === 'function') {
+    const vTitle = document.getElementById('cert-viewer-title');
+    const vBody = document.getElementById('cert-viewer-body');
+    const vDl = document.getElementById('cert-viewer-dl');
+    const vClose = document.getElementById('cert-viewer-close');
+
+    document.querySelectorAll('[data-cert-view]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const title = link.dataset.certTitle;
+        const pages = link.dataset.certPages.split(',');
+        vTitle.textContent = title;
+        vDl.href = link.getAttribute('href');
+        vBody.innerHTML = '';
+        pages.forEach((src, i) => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = pages.length > 1
+            ? `${title} — attestation, page ${i + 1} sur ${pages.length}`
+            : `${title} — attestation`;
+          img.decoding = 'async';
+          img.addEventListener('load', () => {
+            if (img.naturalHeight > img.naturalWidth) img.classList.add('is-portrait');
+          });
+          vBody.appendChild(img);
+          if (pages.length > 1) {
+            const n = document.createElement('p');
+            n.className = 'cert-viewer__page';
+            n.textContent = `${i + 1} / ${pages.length}`;
+            vBody.appendChild(n);
+          }
+        });
+        vBody.scrollTop = 0;
+        document.documentElement.classList.add('has-modal');
+        viewer.showModal();
+      });
+    });
+
+    vClose.addEventListener('click', () => viewer.close());
+    viewer.addEventListener('click', (e) => { if (e.target === viewer) viewer.close(); });
+    viewer.addEventListener('close', () => document.documentElement.classList.remove('has-modal'));
+  }
+
   /* ---------------------------------------------------------------------
      Hero terminal — simulated typing
      --------------------------------------------------------------------- */

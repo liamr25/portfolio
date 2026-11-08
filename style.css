@@ -424,23 +424,74 @@ main{ counter-reset: sec; }
 /* ==========================================================================
    CERTIFICATIONS
    ========================================================================== */
-.certs-row{ margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.certs-row{ margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
 .cert-badge{
-  display: flex; align-items: center; gap: 1rem;
+  display: flex; flex-direction: column; gap: 1.1rem;
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 1.15rem 1.25rem;
+  padding: 1.25rem;
   transition: border-color .2s var(--ease);
 }
 .cert-badge:hover{ border-color: var(--border-strong); }
+.cert-badge__main{ display: flex; align-items: flex-start; gap: 1rem; flex: 1; }
 .cert-badge__icon{
   width: 42px; height: 42px; flex: none; display: grid; place-items: center;
   border-radius: 10px; background: var(--accent-soft); color: var(--accent);
 }
 .cert-badge__title{ font-family: var(--font-display); font-size: 1rem; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
-.cert-badge__sub{ margin-top: .15rem; color: var(--text-dim); font-size: .85rem; }
-.cert-badge__year{ margin-left: auto; flex: none; font-family: var(--font-mono); font-size: .74rem; color: var(--text-faint); }
+.cert-badge__sub{ margin-top: .2rem; color: var(--text-dim); font-size: .86rem; }
+.cert-badge__year{ margin-left: auto; flex: none; padding-top: .15rem; font-family: var(--font-mono); font-size: .74rem; color: var(--text-faint); white-space: nowrap; }
+.cert-badge__actions{ display: flex; flex-wrap: wrap; gap: .5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+.cert-btn{
+  display: inline-flex; align-items: center; gap: .45rem;
+  min-height: 40px; padding: 0 .95rem; border-radius: 999px;
+  font-size: .86rem; font-weight: 600; cursor: pointer;
+  background: var(--text); color: var(--bg); border: 1px solid var(--text);
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.cert-btn:hover{ background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.cert-btn--ghost{ background: var(--surface); color: var(--text); border-color: var(--border-strong); }
+.cert-btn--ghost:hover{ background: var(--surface); color: var(--text); border-color: var(--text); }
+.cert-btn__meta{ font-family: var(--font-mono); font-size: .7rem; font-weight: 400; color: var(--text-faint); }
 
 @media (max-width: 400px){ .certs-row{ grid-template-columns: 1fr; } }
+
+/* Visionneuse d'attestation */
+.cert-viewer{
+  width: min(960px, calc(100vw - 24px)); max-height: calc(100dvh - 24px);
+  margin: auto; padding: 0; border: 1px solid var(--border); border-radius: 16px;
+  background: var(--surface); color: var(--text); box-shadow: 0 30px 80px -20px rgba(0,0,0,.5);
+  overflow: hidden;
+}
+.cert-viewer[open]{ display: flex; flex-direction: column; animation: viewer-in .2s var(--ease); }
+.cert-viewer::backdrop{ background: rgba(9,9,11,.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+@keyframes viewer-in{ from{ opacity: 0; transform: translateY(8px) scale(.98); } }
+.cert-viewer__bar{
+  display: flex; align-items: center; gap: .75rem;
+  padding: .75rem .75rem .75rem 1.25rem; border-bottom: 1px solid var(--border);
+}
+.cert-viewer__title{ flex: 1; min-width: 0; font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cert-viewer__close{
+  width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: 50%;
+  transition: background-color .2s var(--ease);
+}
+.cert-viewer__close:hover{ background: var(--surface-2); }
+.cert-viewer__body{
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: 1.25rem; display: grid; gap: 1rem; background: var(--surface-2);
+}
+.cert-viewer__body img{
+  width: 100%; height: auto; margin: 0 auto; border-radius: 6px;
+  background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+.cert-viewer__body img.is-portrait{ max-width: 640px; }
+.cert-viewer__page{ font-family: var(--font-mono); font-size: .72rem; color: var(--text-faint); text-align: center; margin-top: -.5rem; }
+html.has-modal{ overflow: hidden; }
+@media (max-width: 520px){
+  .cert-viewer__dl-label{ display: none; }
+  .cert-viewer__body{ padding: .75rem; }
+}
+@media (prefers-reduced-motion: reduce){ .cert-viewer[open]{ animation: none; } }
 
 /* ==========================================================================
    VEILLE
