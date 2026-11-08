@@ -545,7 +545,7 @@ html.has-modal{ overflow: hidden; }
 .copy-btn:hover{ border-color: currentColor; }
 .copy-btn.is-copied{ background: var(--ok); border-color: var(--ok); color: #fff; }
 
-.contact-cards{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+.contact-cards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
 .contact-card{
   display: flex; align-items: center; gap: 1rem;
   padding: 1.15rem 1.25rem; border-radius: var(--radius);
